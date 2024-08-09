@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://biqlorsfsiwyh"]
+
+[ext_resource type="Script" path="res://scene/components/FilesManager/files_manager.gd" id="1_408lh"]
+[ext_resource type="Texture2D" uid="uid://tem03she3ktg" path="res://resource/icons/FlatColorIconsFolder.svg" id="2_2b40a"]
+
+[node name="FilesManager" type="PanelContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_408lh")
+ICON_FOLDER = ExtResource("2_2b40a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Tree" type="Tree" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

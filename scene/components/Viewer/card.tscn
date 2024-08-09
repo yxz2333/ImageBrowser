@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmt4esywel5ul"]
+
+[ext_resource type="Script" path="res://scene/components/Viewer/card.gd" id="1_4cofj"]
+[ext_resource type="Texture2D" uid="uid://c7mjodv6nu6r5" path="res://resource/icons/SystemUiconsPicture.svg" id="2_s45jr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3trf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h01se"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3prlw"]
+bg_color = Color(0.6, 0.6, 0.6, 0.427451)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v303r"]
+
+[node name="Card" type="PanelContainer"]
+custom_minimum_size = Vector2(120, 160)
+script = ExtResource("1_4cofj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="AlreadyPic" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_s45jr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UnreadyPic" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_s45jr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q3trf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h01se")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3prlw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v303r")

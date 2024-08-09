@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://co1nmbgcendcd"]
+
+[ext_resource type="Script" path="res://scene/components/Viewer/PageManager/page_manager.gd" id="1_8ewef"]
+[ext_resource type="Texture2D" uid="uid://caj1rjlj38s38" path="res://resource/icons/AntDesignLeftCircleTwotone.svg" id="2_abird"]
+[ext_resource type="Texture2D" uid="uid://b0hljumdaep18" path="res://resource/icons/AntDesignRightCircleTwotone.svg" id="3_wpdg5"]
+[ext_resource type="Texture2D" uid="uid://dgrtns7lt1sfw" path="res://resource/icons/RaphaelPage2.svg" id="4_c6cbv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_endnp"]
+font_size = 18
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_811c5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mg8u7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2204"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fr03i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnmvg"]
+
+[node name="PageManager" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 61.0
+grow_horizontal = 2
+script = ExtResource("1_8ewef")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(152, 0)
+layout_mode = 2
+text = "Total : 0"
+label_settings = SubResource("LabelSettings_endnp")
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BtnPrev" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_811c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mg8u7")
+icon = ExtResource("2_abird")
+icon_alignment = 1
+
+[node name="PageInfo" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "1/1"
+horizontal_alignment = 1
+
+[node name="BtnNext" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y2204")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fr03i")
+icon = ExtResource("3_wpdg5")
+icon_alignment = 1
+
+[node name="Space2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(152, 36)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rnmvg")
+alignment = 1
+item_count = 4
+selected = 0
+popup/item_0/text = "30 / page"
+popup/item_0/icon = ExtResource("4_c6cbv")
+popup/item_0/id = 0
+popup/item_1/text = "50 / page"
+popup/item_1/icon = ExtResource("4_c6cbv")
+popup/item_1/id = 1
+popup/item_2/text = "75 / Page"
+popup/item_2/icon = ExtResource("4_c6cbv")
+popup/item_2/id = 2
+popup/item_3/text = "100 / Page"
+popup/item_3/icon = ExtResource("4_c6cbv")
+popup/item_3/id = 3

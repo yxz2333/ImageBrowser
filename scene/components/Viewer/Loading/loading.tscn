@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://r1xwnd78s8f8"]
+
+[ext_resource type="Script" path="res://scene/components/Viewer/Loading/loading.gd" id="1_ausu0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj7dp"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 0.776471)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ol3ow"]
+font_size = 30
+
+[sub_resource type="Animation" id="Animation_6vtvm"]
+resource_name = "Label"
+length = 0.95
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Loading", "Loading.", "Loading..", "Loading...", "Loading....", "Loading.....", "Loading......"]
+}
+
+[sub_resource type="Animation" id="Animation_18pgg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Loading......"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4sk6g"]
+_data = {
+"Label": SubResource("Animation_6vtvm"),
+"RESET": SubResource("Animation_18pgg")
+}
+
+[node name="Loading" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dj7dp")
+script = ExtResource("1_ausu0")
+
+[node name="LoadingLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loading......"
+label_settings = SubResource("LabelSettings_ol3ow")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_4sk6g")
+}

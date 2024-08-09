@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Image Browser"
+run/main_scene="res://scene/app.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://resource/icons/GravityUiPicture128.svg"
+config/windows_native_icon="res://resource/icons/iii.ico"
+
+[autoload]
+
+Globals="*res://globals/globals.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/filesystem_drawer/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/script-dock/plugin.cfg")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwnir655jbktl"]
+
+[ext_resource type="Script" path="res://scene/components/Viewer/viewer.gd" id="1_gr4e2"]
+[ext_resource type="PackedScene" uid="uid://dmt4esywel5ul" path="res://scene/components/Viewer/card.tscn" id="2_qbcag"]
+[ext_resource type="PackedScene" uid="uid://co1nmbgcendcd" path="res://scene/components/Viewer/PageManager/page_manager.tscn" id="3_48lta"]
+[ext_resource type="PackedScene" uid="uid://r1xwnd78s8f8" path="res://scene/components/Viewer/Loading/loading.tscn" id="3_aeblg"]
+
+[node name="Viewer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+script = ExtResource("1_gr4e2")
+PACKSCENE_CARD = ExtResource("2_qbcag")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HFC_Main" type="HFlowContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Card" parent="VBoxContainer/MarginContainer/ScrollContainer/HFC_Main" instance=ExtResource("2_qbcag")]
+layout_mode = 2
+
+[node name="Card2" parent="VBoxContainer/MarginContainer/ScrollContainer/HFC_Main" instance=ExtResource("2_qbcag")]
+layout_mode = 2
+
+[node name="Card3" parent="VBoxContainer/MarginContainer/ScrollContainer/HFC_Main" instance=ExtResource("2_qbcag")]
+layout_mode = 2
+
+[node name="Loading" parent="VBoxContainer/MarginContainer" instance=ExtResource("3_aeblg")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PageManager" parent="VBoxContainer" instance=ExtResource("3_48lta")]
+unique_name_in_owner = true
+layout_mode = 2
